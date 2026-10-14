@@ -4,14 +4,6 @@ T = TypeVar("T")  # represents generic type
 
 def insertion_sort(data: List[T], *, comparator: Callable[[T, T], bool] = lambda x, y: x < y,
                    descending: bool = False) -> None:
-    """
-    Sorts a list in place using insertion sort algorithm.
-
-    :param data: List of type T to be sorted
-    :param comparator: A function which takes two arguments of type T and returns True when the first argument should be
-     treated as less than or equal to the second argument.
-    :param descending: Perform the sort in descending order when this is True
-    """
     if descending:
         for i in range(len(data)):
             j = i
@@ -29,17 +21,6 @@ def insertion_sort(data: List[T], *, comparator: Callable[[T, T], bool] = lambda
 
 def merge_sort(data: List[T], *,
                       comparator: Callable[[T, T], bool] = lambda x, y: x < y, descending: bool = False) -> None:
-    """
-    Sorts a list in-place using a hybrid sort with the merge sort and insertion sort algorithms
-    Uses insertion_sort to sort lists once their size is less than or equal to threshold,
-    and otherwise performs a merge sort
-
-    :param data: List of type T to be sorted
-    :param threshold: Maximum size at which insertion sort will be used instead of merge sort
-    :param comparator: A function which takes two arguments of type T and returns True when the first argument should be
-     treated as less than or equal to the second argument.
-    :param descending: Perform the sort in descending order when this is True
-    """
     n = len(data)
     if n <= 1:
         return
